@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body bgcolor="#F596AA">
+<body bgcolor="#F596AA" onload="startClock()" onunload="stopClock()">
+    <div id="show"></div>
     <font size="5"><caption>個人網站</caption></font><br><br>
     <font size="5" >個人興趣</font><br>
     <ul>
@@ -15,7 +16,7 @@
         <li>練程式</li>
         <li>有時間會讀日文</li>
     </ul>
-    <table>
+    
         <font face="標楷體" color="red" size="8">照片集</font><br>
         <img src="images/a00.jpg" alt="" width="300" height="200" onMouseDown="this.src=nextImage()"
                                                                   onmouseover="this.src=randomImage()">
@@ -39,9 +40,34 @@
 			    curIndex=Math.floor(Math.random()*imgArray.length)
 			    return(imgArray[curIndex].src);
 		    }
-	
-        </script>
-    </table>
+
+            
+            var timer = null;
+            // 顯示數字圖片
+            function displayClock(num) {
+                var dig = parseInt(num/10);
+                var timetag="<img src='images01\\" + dig + ".gif'>";
+                dig = num%10;
+                timetag +="<img src='images01\\" + dig + ".gif'>";
+                return timetag;
+            }
+            // 停止計時
+            function stopClock() {
+                clearTimeout(timer);
+            }
+            // 開始計時
+            function startClock() {
+            var time = new Date();
+            // 取得時間
+            var hours = displayClock(time.getHours()) + ":";
+            var minutes = displayClock(time.getMinutes()) + ":";
+            var seconds = displayClock(time.getSeconds());
+            // 顯示時間
+            show.innerHTML = hours + minutes + seconds;
+            timer = setTimeout("startClock()",1000);
+            }
+        </script>       
+    
 
 
 </body>
