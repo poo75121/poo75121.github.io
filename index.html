@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body bgcolor="#F596AA">
+    <font size="5"><caption>個人網站</caption></font><br><br>
+    <font size="5" >個人興趣</font><br>
+    <ul>
+        <li>玩線上遊戲</li>
+        <li>看日劇</li>
+        <li>練程式</li>
+        <li>有時間會讀日文</li>
+    </ul>
+    <table>
+        <font face="標楷體" color="red" size="8">照片集</font><br>
+        <img src="images/a00.jpg" alt="" width="300" height="200" onMouseDown="this.src=nextImage()"
+                                                                  onmouseover="this.src=randomImage()">
+        <script>
+		    var curIndex=0;
+            var imgArray = new Array();
+		    var as=19;
+		    for(i=0;i<as;i++){
+			    imgArray[i]=new Image();
+                if (i<10)
+			        imgArray[i].src="images/a0"+i+".jpg";
+                else
+                    imgArray[i].src="images/a"+i+".jpg";
+		    }
+		    function nextImage(){
+			    curIndex++;
+			    curIndex=curIndex % as;	
+			    return(imgArray[curIndex].src);
+		    }
+            function randomImage(){
+			    curIndex=Math.floor(Math.random()*imgArray.length)
+			    return(imgArray[curIndex].src);
+		    }
+	
+        </script>
+    </table>
+
+
+</body>
+</html>
