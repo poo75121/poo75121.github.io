@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>阿部寬-(最新)阿部寬</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+		#abgne_marquee {
+			position: absolute;
+			overflow: hidden;	/* 超出範圍的部份要隱藏 */
+			width: 125px;
+			height: 25px;
+			border: 1px solid #ccc;
+			top:16px;
+			left:30%
+		}
+		#abgne_marquee ul, #abgne_marquee li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#abgne_marquee ul {
+			position: absolute;
+		}
+		#abgne_marquee ul li a {
+			display: block;
+			overflow: hidden;	/* 超出範圍的部份要隱藏 */
+			font-size:12px;
+			height: 25px;
+			line-height: 25px;
+			text-decoration: none;
+		}
+		div#abgne_marquee {
+			position: relative;
+			overflow: hidden;	/* 超出範圍的部份要隱藏 */
+			width: 630px;
+			height: 25px;
+			border: 1px solid #ccc;
+		}
+		div#abgne_marquee ul, div#abgne_marquee li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		div#abgne_marquee ul {
+			position: absolute;
+		}
+		div#abgne_marquee ul li a {
+			display: block;
+			overflow: hidden;	/* 超出範圍的部份要隱藏 */
+			font-size:12px;
+			height: 25px;
+			line-height: 25px;
+			text-decoration: none;
+		}
+		#big{
+			position:relative;
+			top:30px;
+			left:250px;        
+		}
+		#big02{
+			position:absolute;
+			top:142px;
+			left:850px;        
+		}
+		#container { position : absolute;  margin : 0 auto;
+             text-align : left;    width : 20%; }
+		p { width : 300px; }
+		#menu { float : right; width : 250px; }
+		#menu, #menu ul { list-style-type : none;
+						background-color : white;
+						padding : 0; margin : 0; }
+		#menu li { cursor : pointer; background-color : #555;
+				border-bottom : 1px solid #FFFFFF; }
+		#menu li a { text-decoration: none; }
+		#menu > li > a { padding : 2px 10px; color : white; }
+		#menu li ul li { cursor : auto;  padding : 0 14px;
+						background-color : white; }
+		.aa{
+			position:absolute;
+        	top:65%;
+        	left:40%; 
+		}
+		.bb{
+			position:absolute;
+        	top:65%;
+        	left:78%; 
+		}
+    </style>   
+
+<script type="text/javascript">
+	$(function(){
+		// 先取得 div#abgne_marquee ul
+		// 接著把 ul 中的 li 項目再重覆加入 ul 中(等於有兩組內容)
+		// 再來取得 div#abgne_marquee 的高來決定每次跑馬燈移動的距離
+		// 設定跑馬燈移動的速度及輪播的速度
+		var $marqueeUl = $('div#abgne_marquee ul'),
+			$marqueeli = $marqueeUl.append($marqueeUl.html()).children(),
+			_height = $('div#abgne_marquee').height() * -1,
+			scrollSpeed = 600,
+			timer,
+			speed = 3000 + scrollSpeed;
+		
+		// 把 $marqueeUl 的 top 設為顯示到第二組內容的第一筆
+		$marqueeUl.css('top', $marqueeli.length / 2 * _height);
+		
+		// 幫左邊 $marqueeli 加上 hover 事件
+		// 當滑鼠移入時停止計時器；反之則啟動
+		$marqueeli.hover(function(){
+			clearTimeout(timer);
+		}, function(){
+			timer = setTimeout(showad, speed);
+		});
+		
+		// 控制跑馬燈移動的處理函式
+		function showad(){
+			var _now = $marqueeUl.position().top / _height;
+			_now = (_now - 1 + $marqueeli.length) % $marqueeli.length;
+			
+			// $marqueeUl 移動
+			$marqueeUl.animate({
+				top: _now * _height
+			}, scrollSpeed, function(){
+				// 如果已經移動到第一組時...則馬上把 top 設為顯示到第二組內容的第一筆
+				// 藉此產生不間斷的輪播
+				if(_now == 0){
+					$marqueeUl.css('top', $marqueeli.length / 2 * _height);
+				}
+			});
+			
+			// 再啟動計時器
+			timer = setTimeout(showad, speed);
+		}
+		
+		// 啟動計時器
+		timer = setTimeout(showad, speed);
+
+		$('a').focus(function(){
+			this.blur();
+		});
+	});
+	$(document).ready(function(){
+		var toggle = 1;
+		$('#menu > li > ul').hide()
+			.click(function(event) {
+				event.stopPropagation();
+			});
+		$('#menu > li').click(function() { 
+			if (toggle == 1) {
+				$(this).find('ul').slideDown();
+				toggle = 0;
+			}
+			else {
+				$(this).find('ul').slideUp();
+				toggle = 1;
+			}
+		});
+	});
+	$(document).ready(function() {
+   		$('p').animate({ 
+      		padding: '20px'
+   		}, 2000);
+   	$('#navigation li').hover(
+    	function() {
+        	$(this).animate({paddingLeft: '+=10px'}, 200);
+      	}, 
+      	function() {
+        	$(this).animate({paddingLeft: '-=10px'}, 200);
+   		});
+	});
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" onload="startClock()" onunload="stopClock()">
+    <div id="show" align="center"></div><br/>
+    <font size="15" color="#64363C"><center>最新消息-阿部寬&nbsp;&nbsp;<a href="index.html"><font size="5">回上一頁</font></a>
+
+    </center></font>
+	<div id="abgne_marquee">
+		<ul>
+			<li><a href="https://m.life.tw/?app=view&no=124254"><font size="5">【勁爆】2014/04/11 阿部寬和妻子的照片！ (有圖有真相！)</font></a></li>
+			<li><a href="https://asahichinese-f.com/cool_japan/entertainment/11332840"><font size="5">【最新】2018/01/31 阿部寬《新參者》 (呈現真實的自我)</font></a></li>
+			<li><a href="http://www.mzplus.com/mzRead/06426599157"><font size="5">【調查】阿部寬愈老愈紅 (私生活的怪癖嗜好)</font></a></li>
+		</ul>
+	</div>
+	<div id="big">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/i5epSASlzAQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<font size="3"><br/>
+				<div id="container">
+					<div id="content">  
+						<ul id="menu">
+							<li><a href="#">不是每個人...</a>
+								<ul class="submenu">
+								<li><a href="#">【不是每個人，都能成為自己理想中的大人】</a></li>
+								</ul>
+							</li>
+							<li><a href="#">現在的你...</a>
+								<ul class="submenu">
+								<li><a href="#">【現在的你，是當初所想像的樣子嗎？】</a></li>
+								</ul>
+							</li>
+							<li><a href="#">我的意外爸爸...</a>
+								<ul class="submenu">
+								<li><a href="#">《‪‎#我的意外爸爸》《‪#海街日記》導演 #是枝裕和 最新作</a></li>
+								</ul>  
+							</li>
+							<li><a href="#">9月2日...</a>
+								<ul class="submenu">
+								<li><a href="#">9月2日《‪‎#比海還深》：獻給每個大器晚成的你</a></li>
+								</ul>
+							</li>											
+				   </div>
+				</div>
+			</font>
+	</div>
+	<div id="big02">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/1rw57n2nyhg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<font size="3"><br/><p>阿部寬在改編自東野圭吾暢銷小說的強檔日片《新參者完結篇：當祈禱落幕時》中</br>
+				飾演神探「加賀恭一郎」，調查一具公寓中發現的腐爛女屍案子，</br>
+				但公寓屋主越川睦夫卻下落不明。經過調查才發現，</br>
+				死者是要和松嶋菜菜子飾演的同學見面才被殺，但雙姝和屋主卻毫無任何關係，案情陷入膠著，</br>
+				神探在調查中卻在死者遺物中發現這起謀殺案竟然與離家出走多年的母親有關。</p></font>
+	</div>
+
+	<div id="navigation">
+		<div class="aa">
+			<ul>
+			   <li><a href="#">詳進內容</a></li>
+			   <li><a href="#">點我搶購預售票</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="navigation">
+			<div class="bb">
+				<ul>
+				   <li><a href="#">詳進內容</a></li>
+				   <li><a href="#">點我搶購預售票</a></li>
+				</ul>
+			</div>
+		</div>	
+	<br/><br/><br/><br/>
+</body>
+</html>

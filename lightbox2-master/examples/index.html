@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>阿部寬-(生活圖)阿部寬</title>
+  <link rel="stylesheet" href="../dist/css/lightbox.min.css">
+  <link rel="stylesheet" href="css/screen.css" media="screen"/>
+<link rel="stylesheet" href="css/lightbox.css" media="screen"/>
+<style type="text/css">
+  .big{
+    position:relative;
+			top:30px;
+			left:250px; 
+  }  
+  #one { 
+      width : 140px;
+      height : 140px;
+      position:absolute;
+      top : 550px;
+      left : 100px; 
+      background-color : #f00;}
+  #two {
+      width : 140px;
+      height : 140px;
+      position:absolute;
+      top : 600px;
+      left : 180px; 
+      background-color : #0f0; }
+  .two2 { 
+      position:absolute;
+      top : 600px;
+      left : 180px; }
+  #three { 
+      width : 140px;
+      height : 140px;
+      position:absolute;
+      top : 650px;
+      left : 260px; 
+      background-color : #00f; }
+  #a00{
+    font-size:2;
+    position:absolute;
+    top : 50%;
+    left : 500px; 
+  }
+  .b00{
+    font-size:2;
+    position:absolute;
+    top : 700px;
+    left : 500px;
+    color: #f00; 
+  }
+</style>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/lightbox-2.6.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("br").toggle();
+      });
+    });
+    </script>
+<script>
+  $(document).ready(function() {
+     $("div").click(function () {
+        $(this).fadeTo("slow", Math.random());
+     });
+  });
+  var maxChar = 100;
+$(document).ready(function() {
+   $('#counter').text(maxChar);
+   $('#memo').keydown(function(event) {
+      var msg = $(this).val();
+      var numChar = msg.length;
+      var charRemain = maxChar - numChar;
+      if (numChar <= maxChar) {
+         $('#counter').text(charRemain);
+      }
+      else {
+         event.preventDefault();
+      }
+   });  
+});
+  </script>
+</head>
+<body bgcolor="#FFF" onload="startClock()" onunload="stopClock()">
+  <div id="show" align="center"></div><br/>
+  <font size="15" color="#64363C"><center>日本男優-阿部寬&nbsp;&nbsp;<a href="file:///C:/Users/%E5%96%AE%E5%96%AE/Desktop/JS/class000/index.html"><font size="5">回上一頁</font></a>
+
+  <section>
+    <hr />
+    <a id="big">
+      <a class="example-image-link" href="http://www.instyle.tw/uploads/article/1212/01.jpg" data-lightbox="example-set" data-title="戲如人生-既是工作也是生活"><img class="example-image" src="http://www.instyle.tw/uploads/article/1212/01.jpg" width="500" height="400" alt=""/></a>
+      <a class="example-image-link" href="https://i1.kknews.cc/SIG=3mpk1rc/14990006r55o7o712286.jpg" data-lightbox="example-set" data-title="越老越帥氣，事業感情均得宜"><img class="example-image" src="https://i1.kknews.cc/SIG=3mpk1rc/14990006r55o7o712286.jpg" width="450" height="400" alt="" /></a>
+      <a class="example-image-link" href="http://www.magabon.jp/special/voice/common/images/photo234_02.jpg" data-lightbox="example-set" data-title="因為喜歡你的可愛，有點男人的固執呆，十分幽默風趣"><img class="example-image" src="http://www.magabon.jp/special/voice/common/images/photo234_02.jpg" width="500" height="400" alt="" /></a>
+    </a>
+  </section>
+
+  <script src="../dist/js/lightbox-plus-jquery.min.js"></script>
+  <div id="one"></div>
+<div class="two2"><img src="aaa.jpg" width="140px" height="140px"></div>
+<div id="two"></div>
+<div id="three"></div>
+<p id="a00">
+  <p>&nbsp; &nbsp; 用自己的想法寫下 
+    <span id="counter"></span> 個字給<br/>
+    阿部寬的感語
+    <textarea id="memo" cols="50" rows="5"></textarea>
+  </p>
+  <br/><br/><br/><br/><br/>
+  <a class="b00">
+    <button>寫完感言請點我</button>
+    <br>謝謝你的支持，我會更努力</br>
+</a>
+</body>
+</html>

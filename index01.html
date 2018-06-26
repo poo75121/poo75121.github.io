@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阿部寬-(關於)阿部寬</title>
+    <style type="text/css">
+    #big{
+        position:absolute;
+        top:16%;
+        left:20%;        
+    }
+    #big01{
+        position:absolute;
+        top:16%;
+        left:40%;        
+    }
+    #big02{
+        position:absolute;
+        top:16%;
+        left:60%;        
+    }
+    .yellow { background-color : yellow; }
+    </style>
+<script src="jquery-3.2.1.min.js"></script>
+    <script>
+            // 使用第01個JS圖片效果
+		    var curIndex=0;
+            var imgArray = new Array();
+		    var as=4;
+		    for(i=0;i<as;i++){
+			    imgArray[i]=new Image();
+                if (i<10)
+			        imgArray[i].src="images02/a0"+i+".jpg";
+                else
+                    imgArray[i].src="images02/a"+i+".jpg";
+		    }
+		    function nextImage(){
+			    curIndex++;
+			    curIndex=curIndex % as;	
+			    return(imgArray[curIndex].src);
+		    }
+            function randomImage(){
+			    curIndex=Math.floor(Math.random()*imgArray.length)
+			    return(imgArray[curIndex].src);
+		    }
+            // 使用第02個JS圖片效果
+		    var curIndex=0;
+            var imgArray = new Array();
+		    var as=10;
+		    for(i=0;i<as;i++){
+			    imgArray[i]=new Image();
+                if (i<10)
+			        imgArray[i].src="images03/a0"+i+".jpg";
+                else
+                    imgArray[i].src="images03/a"+i+".jpg";
+		    }
+		    function nextImage(){
+			    curIndex++;
+			    curIndex=curIndex % as;	
+			    return(imgArray[curIndex].src);
+		    }
+            function randomImage(){
+			    curIndex=Math.floor(Math.random()*imgArray.length)
+			    return(imgArray[curIndex].src);
+		    }
+            // 使用第03個JS圖片效果
+		    var curIndex=0;
+            var imgArray = new Array();
+		    var as=10;
+		    for(i=0;i<as;i++){
+			    imgArray[i]=new Image();
+                if (i<10)
+			        imgArray[i].src="images04/a0"+i+".jpg";
+                else
+                    imgArray[i].src="images04/a"+i+".jpg";
+		    }
+		    function nextImage(){
+			    curIndex++;
+			    curIndex=curIndex % as;	
+			    return(imgArray[curIndex].src);
+		    }
+            function randomImage(){
+			    curIndex=Math.floor(Math.random()*imgArray.length)
+			    return(imgArray[curIndex].src);
+		    }
+            
+            var timer = null;
+            // 顯示數字圖片
+            function displayClock(num) {
+                var dig = parseInt(num/10);
+                var timetag="<img src='images01\\" + dig + ".gif'>";
+                dig = num%10;
+                timetag +="<img src='images01\\" + dig + ".gif'>";
+                return timetag;
+            }
+            // 停止計時
+            function stopClock() {
+                clearTimeout(timer);
+            }
+            // 開始計時
+            function startClock() {
+            var time = new Date();
+            // 取得時間
+            var hours = displayClock(time.getHours()) + ":";
+            var minutes = displayClock(time.getMinutes()) + ":";
+            var seconds = displayClock(time.getSeconds());
+            // 顯示時間
+            show.innerHTML = hours + minutes + seconds;
+            timer = setTimeout("startClock()",1000);
+            }
+            $(document).ready(function() {
+                $('p').mouseenter(function() {  
+                    $(this).addClass("yellow");
+                    }).mouseleave(function() {  
+                        $(this).removeClass("yellow");
+                    });         
+            });
+            $(document).ready(function() {
+            var p = $('p.more');
+            p.hide();
+            $('a.more').click(function() {
+                p.toggle('slow');
+                if ($(this).text() == '更多內容')
+                    $(this).text('隱藏內容');
+                else
+                    $(this).text('更多內容');      
+                return false;
+            });
+            });
+        </script>
+</head>
+
+<body bgcolor="#FFFFFF" onload="startClock()" onunload="stopClock()">
+    <div id="show" align="center"></div><br/>
+    <font size="15" color="#64363C"><center>日本男優-阿部寬&nbsp;&nbsp;<a href="index.html"><font size="5">回上一頁</font></a>
+
+    </center></font>
+    <div id="big">
+            <img src="images02/a00.jpg" border="3" width="300" height="400" onMouseDown="this.src=nextImage()" onmouseover="this.src=randomImage()">
+    </div>
+    <div id="big01">
+            <img src="images03/a04.jpg" border="3" width="300" height="400" onMouseDown="this.src=nextImage()" onmouseover="this.src=randomImage()">
+    </div>
+    <div id="big02">
+            <img src="images03/a07.jpg" border="3" width="300" height="400" onMouseDown="this.src=nextImage()" onmouseover="this.src=randomImage()">
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <font size="4" color="#4D5139"><center>
+            <p>在1987年的電影【窈窕淑女】當中，以演員身份初次亮相，此後不斷累積電視劇、</p>
+            <p>電影演出紀錄，作品已經不計其數，角色形象複雜而多變。同時，他也是很早將演藝觸角伸向亞洲的日本演員之一：</p>
+            <p>在1990年日本與香港合作的【阿修羅傳奇】當中，與葉蘊儀及李麗珍等港星共同合作；</p>
+            <p class="more">1997年並客串演出台灣電視劇【菅芒花的春天】，飾演咖啡店老闆一角；2000年並參與梁朝偉和鄭伊健共同主演的電影【東京攻略】。<br/>
+            外型與演出實力兼具的他，在2008年以【青鳥】、【橫山家之味】兩片榮登每日映畫獎最佳男主角獎寶座。<br/>
+            而在最新作品【麒麟之翼：新參者劇場版】當中，阿部寬將延續他在電視劇【新參者警察】中的人氣角色「加賀恭一郎」，<br/>
+            再度破解難以解決的殺人謎團。</p>
+            <a href="#" class="more">更多內容</a>
+    </center></font>    
+    <hr/>
+</body>
+</html>
